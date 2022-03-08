@@ -1,5 +1,7 @@
 package de.dhbw.ase.theone;
 
+import de.dhbw.ase.theone.country.Country;
+import de.dhbw.ase.theone.country.CountryRepository;
 import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import de.dhbw.ase.theone.manufacturer.ManufacturerRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -21,9 +23,18 @@ public class TheOneApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(ManufacturerRepository manufacturerRepository) {
+    public CommandLineRunner demo(CountryRepository countryRepository,ManufacturerRepository manufacturerRepository) {
         return (args) -> {
-            manufacturerRepository.save(new Manufacturer("Testhersteller","Ukraine"));
+            Country ukraine = new Country("UKR","Ukraine");
+            Country germany = new Country("GER","Deutschland");
+            Country france = new Country("FRA","Frankreich");
+
+            countryRepository.save(ukraine);
+            countryRepository.save(germany);
+            countryRepository.save(france);
+
+            Manufacturer testManufacturer = new Manufacturer("Testhersteller",ukraine);
+            manufacturerRepository.save(testManufacturer);
         };
     }
 

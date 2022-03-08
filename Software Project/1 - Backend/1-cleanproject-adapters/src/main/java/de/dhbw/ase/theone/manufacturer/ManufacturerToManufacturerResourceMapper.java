@@ -1,19 +1,28 @@
 package de.dhbw.ase.theone.manufacturer;
 
+import de.dhbw.ase.theone.country.CountryToCountryResourceMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
 
 @Component
-public class ManufacturerToManufacturerResourceMapper implements Function<Manufacturer,ManufacturerRessource> {
+public class ManufacturerToManufacturerResourceMapper implements Function<Manufacturer, ManufacturerResource> {
+
+    CountryToCountryResourceMapper countryToCountryResourceMapper;
+
+    @Autowired
+    public ManufacturerToManufacturerResourceMapper(CountryToCountryResourceMapper countryToCountryResourceMapper) {
+        this.countryToCountryResourceMapper = countryToCountryResourceMapper;
+    }
 
     @Override
-    public ManufacturerRessource apply(Manufacturer manufacturer) {
+    public ManufacturerResource apply(Manufacturer manufacturer) {
         return map(manufacturer);
     }
 
-    private ManufacturerRessource map(Manufacturer manufacturer) {
-        return new ManufacturerRessource(manufacturer.getName(), manufacturer.getCountry());
+    private ManufacturerResource map(Manufacturer manufacturer) {
+        return new ManufacturerResource(manufacturer.getName(), countryToCountryResourceMapper.apply(manufacturer.getCountry()));
     }
 
 }

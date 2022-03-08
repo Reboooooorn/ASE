@@ -1,5 +1,6 @@
 package de.dhbw.ase.theone.manufacturer;
 
+import de.dhbw.ase.theone.country.Country;
 import de.dhbw.ase.theone.manufacturer.listener.ManufacturerListener;
 import lombok.Getter;
 
@@ -19,10 +20,11 @@ public class Manufacturer {
     @Column(name = "name",nullable = false)
     private String name;
 
-    @Column(name = "country")
-    private String country;
+    @ManyToOne
+    @JoinColumn(name = "originCountryId")
+    private Country country;
 
-    public Manufacturer(String name, String country) {
+    public Manufacturer(String name, Country country) {
         this.name = name;
         this.country = country;
     }
