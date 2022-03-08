@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ManufacturerRepositoryBridge implements ManufacturerRepository {
@@ -25,5 +26,10 @@ public class ManufacturerRepositoryBridge implements ManufacturerRepository {
     @Override
     public List<Manufacturer> findAllManufacturers() {
         return springDataManufacturerRepository.findAll();
+    }
+
+    @Override
+    public Optional<Manufacturer> findById(long id) {
+        return springDataManufacturerRepository.findById(id);
     }
 }

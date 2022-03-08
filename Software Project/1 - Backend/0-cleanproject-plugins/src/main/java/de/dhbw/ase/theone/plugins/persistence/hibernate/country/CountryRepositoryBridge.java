@@ -13,15 +13,20 @@ import java.util.List;
 @Repository
 public class CountryRepositoryBridge implements CountryRepository {
 
-    private SpringDataCountryRepository springDataManufacturerRepository;
+    private SpringDataCountryRepository springDataCountryRepository;
 
     @Autowired
-    public CountryRepositoryBridge(SpringDataCountryRepository springDataManufacturerRepository) {
-        this.springDataManufacturerRepository = springDataManufacturerRepository;
+    public CountryRepositoryBridge(SpringDataCountryRepository springDataCountryRepository) {
+        this.springDataCountryRepository = springDataCountryRepository;
     }
 
     @Override
     public Country save(Country country) {
-        return springDataManufacturerRepository.save(country);
+        return springDataCountryRepository.save(country);
+    }
+
+    @Override
+    public List<Country> findAll() {
+        return springDataCountryRepository.findAll();
     }
 }

@@ -4,7 +4,7 @@ import de.dhbw.ase.theone.country.Country;
 import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SpringDataCountryRepository extends JpaRepository<Manufacturer, Long> {
+public interface SpringDataCountryRepository extends JpaRepository<Country, Long> {
 
     Country save(Country country);
 

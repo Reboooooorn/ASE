@@ -1,7 +1,9 @@
 package de.dhbw.ase.theone.country;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.LinkedList;
@@ -9,22 +11,23 @@ import java.util.List;
 
 @Entity
 @Getter
+@NoArgsConstructor
 @Table(name = "country")
 public class Country {
 
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "abbreviation", nullable = false, length = 3, unique = true)
+    @Column(name = "abbreviation", length = 3, unique = true,nullable = false)
     private String abbreviation;
 
-    @Column(name = "name")
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Transient
     @OneToMany
+    @JoinColumn(name = "originCountryId")
+    @JsonIgnore
     private List<Manufacturer> manufacturerList = new LinkedList<>();
 
     public Country(String abbreviation, String name) {
@@ -32,7 +35,4 @@ public class Country {
         this.name = name;
     }
 
-    public Country() {
-        //Intentionally Blank for Jackson
-    }
 }
