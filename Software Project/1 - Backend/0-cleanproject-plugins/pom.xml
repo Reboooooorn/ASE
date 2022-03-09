@@ -54,6 +54,13 @@
             <version>5.6.5.Final</version>
         </dependency>
 
+        <!-- Lombok Annotationen -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+
         <dependency>
             <groupId>de.dhbw.ase.theone</groupId>
             <artifactId>1-cleanproject-adapters</artifactId>

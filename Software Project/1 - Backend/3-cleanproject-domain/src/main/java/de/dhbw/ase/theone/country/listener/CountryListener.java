@@ -1,14 +1,11 @@
 package de.dhbw.ase.theone.country.listener;
 
-import de.dhbw.ase.theone.collection.Collection;
 import de.dhbw.ase.theone.country.Country;
-import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.persistence.PostPersist;
 import javax.persistence.PostRemove;
-import javax.persistence.PrePersist;
 
 public class CountryListener {
 
