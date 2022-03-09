@@ -13,11 +13,11 @@ public class CountryListener {
 
     @PostPersist
     public void logNewAdded(Country country) {
-        log.info(String.format("[LAND] Neues Land '%s' [%s] (%d) erstellt!",country.getName(),country.getAbbreviation(),country.getId()));
+        log.info(String.format("[LAND] Neues Land '%s' [%s] (%d) erstellt!", country.getName(), country.getAbbreviation(), country.getId()));
     }
 
     @PostRemove
     public void logRemoval(Country country) {
-        log.info(String.format("[LAND] Land '%s'[%s] ('%d') wurde gelöscht!", country.getName(),country.getAbbreviation(),country.getId()));
+        log.info(String.format("[LAND] Land '%s'[%s] ('%d') wurde gelöscht!", country.getName(), country.getAbbreviation(), country.getId()));
     }
 }

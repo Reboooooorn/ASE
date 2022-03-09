@@ -19,7 +19,7 @@ public class Manufacturer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @ManyToOne(optional = false)
@@ -32,7 +32,7 @@ public class Manufacturer {
     }
 
     public Manufacturer(Long id, String name, Country country) {
-        this(name,country);
+        this(name, country);
         this.id = id;
     }
 }

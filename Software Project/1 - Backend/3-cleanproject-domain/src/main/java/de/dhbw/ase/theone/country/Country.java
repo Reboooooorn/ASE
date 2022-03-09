@@ -19,10 +19,10 @@ public class Country {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "abbreviation", length = 3, unique = true,nullable = false)
+    @Column(name = "abbreviation", length = 3, unique = true, nullable = false)
     private String abbreviation;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToMany
