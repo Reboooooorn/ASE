@@ -42,4 +42,9 @@ public class CollectionRepositoryBridge implements CollectionRepository {
     public Optional<Collection> findById(long collectionID) {
         return springDataCollectionRepository.findById(collectionID);
     }
+
+    @Override
+    public Optional<Collection> findFirstByName(String name) {
+        return springDataCollectionRepository.findFirstByName(name);
+    }
 }

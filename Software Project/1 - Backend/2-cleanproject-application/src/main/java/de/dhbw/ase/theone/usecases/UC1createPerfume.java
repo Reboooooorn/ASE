@@ -43,7 +43,7 @@ public class UC1createPerfume {
 
             Optional<Collection> targetCollection;
             if(null != perfume.getCollection()){
-                targetCollection = collectionRepository.findById(perfume.getCollection().getId());
+                targetCollection = collectionRepository.findFirstByName(perfume.getCollection().getName());
             }else{
                 targetCollection = Optional.empty();
             }

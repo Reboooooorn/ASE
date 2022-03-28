@@ -13,4 +13,6 @@ public interface CollectionRepository {
     List<Collection> findAllCollections();
 
     Optional<Collection> findById(long collectionID);
+
+    Optional<Collection> findFirstByName(String name);
 }
