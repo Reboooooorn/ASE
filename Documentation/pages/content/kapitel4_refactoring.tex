@@ -1,22 +1,57 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
-%% Modified :	Nico Holzhäuser, TINF19B4
-%% -*- coding: utf-8 -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Refactoring}
 
 \section{Identifizieren von Codesmells}
 
 	\subsection{Code Smell 1}
-	
+	\begin{figure}[h]
+		\centering
+		\shadowimage[width=10cm]{./zfiles/Bilder/CodeSmell1.png}	
+		\caption{Codesmell 1 - Vor der Beseitigung}
+	\end{figure}
+
 		\subsubsection{Begründung}
+		\begin{figure}[h]
+			\centering
+			\shadowimage[width=10cm]{./zfiles/Bilder/CodeSmell1Erk.png}	
+			\caption{Codesmell 1 - Erklärung SonarLint}
+		\end{figure}
+		Bei diesem Codesmell geht es darum, dass die Annotation
+		\begin{lstlisting}[language=java,gobble=12]
+			@RequestMapping(method = RequestMethod.GET)
+		\end{lstlisting}
+		eine veraltete Schreibweise darstellt. Besser geeignet ist die seit Spring Version 4.3 enthaltene Schreibweise 
+		\begin{lstlisting}[language=java,gobble=12]
+			GetMapping(path = "")
+		\end{lstlisting}
+		Diese neue Schreibweise vereinfacht das Finden von entsprechenden Schnittstellen in einem Controller sehr, da nur der Anfang der Annotation gelesen werden muss, und nicht ein Konfigurationsparameter. Somit trägt die Behebung dieses Codesmells zur \textbf{besseren Lesbarkeit} des Codes bei.
 		
 		\subsubsection{Fix}
+		\begin{figure}[h]
+			\centering
+			\shadowimage[width=15cm]{./zfiles/Bilder/CodeSmell1Fix.png}	
+			\caption{Codesmell 1 - Fix}
+		\end{figure}
+		
+		
 		
 	\subsection{Code Smell 2}
+	\begin{figure}[h]
+		\centering
+		\shadowimage[width=15cm]{./zfiles/Bilder/CodeSmell2.png}	
+		\caption{Codesmell 2 - Vor der Beseitigung}
+	\end{figure}
 	
 		\subsubsection{Begründung}
+		\begin{figure}[h]
+			\centering
+			\shadowimage[width=15cm]{./zfiles/Bilder/CodeSmell2Erk.png}	
+			\caption{Codesmell 1 - Erklärung SonarLint}
+		\end{figure}
+		Bei diesem Codesmell liegt ein kritischer Bug vor, der ein grundlegendes Konzept des Typen \hk{Optional} bricht. Hierbei entsteht zur Laufzeit \textbf{kein} Fehler, jedoch ist dies nicht die Art wie ein Optional genutzt werden sollte. Um diese Zuweisung zu entfernen wird einfach in der Abfrage eine leere Instanz des Optional einer Kollektion erschaffen und zugewiesen. Mithilfe dieser kleinen Änderung kann im weiteren Bauvorgang des Parfüms eine einfache Abfrage gemacht werden, ob die Optional-Instanz einer Kollektion eine Kollektion enthält oder das Parfüm in keiner Kollektion eingepflegt werden soll.
 		
 		\subsubsection{Fix}
+		\begin{figure}[h]
+			\centering
+			\shadowimage[width=15cm]{./zfiles/Bilder/CodeSmell2Fix.png}	
+			\caption{Codesmell 2 - Fix}
+		\end{figure}

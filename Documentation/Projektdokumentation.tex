@@ -119,28 +119,12 @@
 	%—————————————————————————————————————————————————————————————————————————
 	%							Inhaltsverzeichnis
 	%—————————————————————————————————————————————————————————————————————————
-	\setcounter{tocdepth}{1}% Allow only \chapter in ToC
+	\setcounter{tocdepth}{2}% Allow only \chapter in ToC
 	\ifthenelse{\boolean{DEBUG}}{}{\cleardoublepage}
 	
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 	\tableofcontents           % Inhaltsverzeichnis hier ausgeben
-	\ifthenelse{\boolean{DEBUG}}{\newpage}{\cleardoublepage}
-	
-	\phantomsection
-	\listoffigures             % Liste der Abbildungen
-	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-	\ifthenelse{\boolean{DEBUG}}{\newpage}{\cleardoublepage}
-	
-	\phantomsection
-	\lstlistoflistings         % Liste der Codeschnipsel
-	\addcontentsline{toc}{chapter}{Codeverzeichnis}
-	\ifthenelse{\boolean{DEBUG}}{\newpage}{\cleardoublepage}
-	
-	\phantomsection
-	\ifthenelse{\boolean{TRENNSTRICHE}}{\addtocontents{toc}{\protect\mbox{}\protect\hrulefill\par}}{}
-	\include{directories/acronyms} %Acronyms
-
 	\ifthenelse{\boolean{DEBUG}}{\newpage}{\cleardoublepage}
 		
 	
@@ -169,24 +153,6 @@
 	%Trennlinie fürs ToC beim letzten Kapitel!
 	
 	\ifthenelse{\boolean{DEBUG}}{}{\cleardoublepage}
-	
-	%—————————————————————————————————————————————————————————————————————————
-	%								Anhang
-	%—————————————————————————————————————————————————————————————————————————
-	%Anhang mit großen römischen Zahlen
-	\pagenumbering{Roman}
-	\appendix
-	\include{./appendix/mainAppendix}
-	\cleardoublepage
-	\ifthenelse{\boolean{DEBUG}}{}{\cleardoublepage}
-	
-	%—————————————————————————————————————————————————————————————————————————
-	%						Literaturverzeichnis
-	%—————————————————————————————————————————————————————————————————————————
-	\renewcommand\bibname{Literaturverzeichnis \\ \vspace{10mm} \normalsize{} Alle Quellen sind zusätzlich im Ordner \HREF{./Quellensicherung}{Quellensicherung} gespeichert ! \vspace{-2cm}}
-	\phantomsection
-	\addcontentsline{toc}{chapter}{Literaturverzeichnis}
-	\printbibliography
-	\ifthenelse{\boolean{DEBUG}}{}{\cleardoublepage}
+
 	
 \end{document}

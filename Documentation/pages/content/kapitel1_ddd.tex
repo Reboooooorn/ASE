@@ -1,42 +1,33 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
-%% Modified :	Kristin Agne, TINF19B4
-%% -*- coding: utf-8 -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Domain Driven Design}
 
-\section{Analyse der Ubiquitous Language}
-
-\section{Analyse und Begründung der verwendeten Muster}
-
-	\subsection{Value Objects}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Entities}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Aggregates}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Repositories}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Domain Services}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
+	\section{Analyse der Ubiquitous Language}
+	In diesem Projekt soll die Ubiquitous Language möglichst einfach gehalten werden. Hierzu werden die gängigen Geschäftsobjekte definiert und deren Verbindung untereinander klar dargestellt.
+	
+	\par Ein Hersteller kommt immer aus genau einem \textbf{Land}, jedoch können mehrere Hersteller einem Land zugeordnet werden. Ein Land ist mit dem alltäglichen Land gleichzusetzen und besitzt einen \textbf{Namen} sowie eine \textbf{Abkürzung}. Ein \textbf{Hersteller} kann \textbf{endlich viele Parfüms} herstellen und besitzt einen \textbf{Namen}, ein \textbf{Land}. Ein \textbf{Parfüm} hat immer zwingend einen \textbf{Hersteller}, ein \textbf{Herstellungsjahr}, eine \textbf{Basisnote}, eine \textbf{Herznote}, eine \textbf{Kopfnote}, einen \textbf{Namen}, eine \textbf{Größe}, einen \textbf{Preis} und ist \textit{optional Teil einer Kollektion}. Jede \textbf{Note} besteht aus einem \textbf{Namen}, sowie einem \textbf{Geruch}. Die \textbf{Kollektionen} haben ebenfalls einen \textbf{Namen} und beinhalten \textbf{endlich viele Parfüms}. Ebenfalls können \textbf{endliche viele Parfüms} auf eine \textbf{Wunschliste} hinzugefügt werden, die einen \textbf{Namen} und die \textbf{erwähnten Parfüms} hat. Zuletzt kann ein \textbf{Rating} erstellt werden, welches das zu bewertende \textbf{Parfüm}, die \textbf{Rating-Attribute (Duft, Haltbarkeit, Sillage, Flakon \& Preis/Leistung)}, sowie einen \textbf{Benutzer} beinhalten. Jedes \textbf{Parfüm} kann \textbf{endlich viele Ratings} besitzen und auf \textbf{endlich vielen Wunschlisten} vorhanden sein. Jedoch kann jede Wunschliste und jede Kollektion ein Parfüm nur \textbf{einmal} enthalten.
+	
+	\section{Analyse und Begründung der verwendeten Muster}
+	
+		\subsection{Value Objects}
+		\hk{Value Objects} sind unveränderbare Objektinstanzen. Diese sind im Projekt in Form der \textit{Ressourcen} Klassen implementiert. Diese Ressourcen sind serialisierbare Kopien der Business Objekte / Entities, um mit dem Frontend kommunizieren zu können, welche durch die Mapper erschaffen werden.
+	
+		\subsection{Entities}
+		Entities sind die Basisobjekte, die durch ihre Identität definiert werden. Im Projekt sind dies Konkret die Domainobjekte
+		\begin{itemize}
+			\item Country
+			\item Manufacturer
+			\item Perfume
+			\item Rating
+			\item Collection
+			\item Wishlist
+			\item Note (konkret hierbei Base-,Heart \& Headnote)
+		\end{itemize}
+	
+		\subsection{Aggregates}
+		Ein Aggregat umfasst mindestens eine Entität, die zu einer Gruppe zusammengefasst werden. Das prominenteste Beispiel im Projekt ist das Aggregate \textit{Note}, welches aus den drei verschiedenen Noteklassen besteht.
+	
+		\subsection{Repositories}
+		Die Repositories sind in diesem Projekt sowohl in der Domänenschicht (formale Definition) als auch in der Plugins Schicht (konkrete Implementierung) zu finden. Sie umfassen die JPA Repositories, welche durch Hibernate eine Implementierung schaffen um auf die Persistierungsebene zuzugreifen.
+	
+		\subsection{Domain Services}
+		Domainservices sind Operationen, die über die Verantwortung einer einzelnen Entität hinausgehen. Diese Services implementieren somit die vorher definierten Use-Cases. Konkret sind diese DomainServices in der Application-Schicht zu finden. Hierbei sind die UC konkret in einem separaten Service von den eigentlichen CRUD Operationen der Entitäten abgetrennt.
+		

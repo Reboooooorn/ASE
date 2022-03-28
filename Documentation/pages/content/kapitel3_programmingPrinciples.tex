@@ -1,66 +1,36 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
-%% Modified :	Kristin Agne, TINF19B4
-%% -*- coding: utf-8 -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Programming Principles}
 
-\section{SOLID}
-
-	\subsection{Single Responsibility}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Open Closed Principle}
+	\section{SOLID}
+		Das Programmierprinzip \textbf{SOLID} umfasst fünf Programmierprinzipien.
+		\paragraph{Single - Responsibility - Prinzip}
+		Das Single-Responsibility Prinzip besagt, dass eine Klasse nur immer genau \textbf{eine} bestimmte Zuständigkeit hat. Das beste Beispiel für den Einsatz dieses Prinzips sind die Repository Klassen. Diese Hibernate Klassen haben nur einen bestimmten Einsatz, nämlich die Persistierung und den Abruf von Entitäten.
+		\paragraph{Open-Closed-Prinzip}
+		Das \hk{Open-Closed-Prinzip} besagt, dass Klassen einfach erweiterbar sein sollen, ohne dass die ganze Klassenlogik abgeändert werden muss. Ein gutes Beispiel hierfür sind die Controller. Hier können einfach neue API-Calls eingefügt werden, ohne andere Methoden abändern zu müssen.
+		\paragraph{Liskov’sche Substitutions-Prinzip}
+		Das \hk{Liskov'sche Substitutions-Prinzip} besagt, dass ein Programm, welches ein Objekt einer Basisklasse T verwendet auch mit den davon abgeleiteten Klassen S korrekt funktionieren muss. Konkret wird das im \hk{NoteToNoteResourceMapper} umgesetzt. Hierbei funktioniert die Methode \textit{map} mit der Hauptklasse Note, sowie allen abgeleiteten Klassen.
+		\paragraph{Interface-Segregation-Prinzip}
+		Das \hk{Interface-Segregation-Prinzip} besagt, dass große Schnittstellen in kleinere (Teil-)Schnittstellen geteilt werden. Konkret wurden im Projekt die Schnittstellen direkt als kleinere Bestandteile,für jede einzelne Entität entwickelt. Im Gegensatz hierzu könnten alle API-Schnittstellen in eine einzelne Klasse gepackt werden. Dabei würde jedoch das \hk{Interface-Segregation-Prinzip} verletzt.
+		\paragraph{Dependency-Inversion-Prinzip}
+		Das \hk{Dependency-Inversion-Prinzip} besagt, dass Module in höheren Ebenen nicht von Modulen niedrigerer Ebenen abhängen dürfen. Hierbei sollten durch Interfaces Möglichkeiten geschaffen werden, um die Module abzukoppeln. Im Projekt wird es konkret beim Bridge-Entwurfsmuster in der Pluginschicht verwendet. Hierbei werden die internen Repository-Interfaces in der Pluginschicht implementiert.
 	
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Liskov Substitution Principle}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Interface Segregation Principle}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Dependency Inversion Principle}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-\section{GRASP (insb. Kopplung/Kohäsion)}
-
-	\subsection{Low Coupling}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{High Cohesion}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-	\subsection{Polymorphismus}
-
-		\subsubsection{Analyse}
-
-		\subsubsection{Begründung}
-
-\section{DRY}
-
-	\subsection{Analyse}
-
-	\subsection{Begründung}
+	\section{GRASP (insb. Kopplung/Kohäsion)}
+		Unter dem Prinzip von GRASP versteht man neun Programmiermuster. Hierbei soll insbesondere auf die Kopplung und die Kohäsion eingegangen werden. Jedoch werden noch weitere dieser neun Prinzipien im Projekt verwendet.
+		
+		%https://www.sourcecodeexamples.net/2018/06/information-expert-grasp-pattern.html
+		\paragraph{Informationsexperte}
+		Beim Prinzip des \hk{Informationsexperten} geht es darum, dass geklärt werden muss an welcher Stelle oder in welche Entität bestimmte Funktionalitäten implementiert werden. Dieses Prinzip ist im Projekt in der Domainschicht zu finden, bei dem bestimmte Entitäten bestimmte Funktionen haben. So ist zum Beispiel das Land ein Informationsexperte der z. B. überprüft ob eine neue Abkürzung den Anforderungen entspricht.
+		
+		\paragraph{Polymorphie}
+		Die \hk{Polymorphie} ist ein Prinzip in der Programmierung. Diese findet im Projekt am Beispiel der Duftnoten ihren Einsatz. So erben alle Duftnoten, egal ob Kopf-, Herz- oder Basisnote von der abstrakten Implementierung \hk{Note}. Im weiteren Verlauf können alle Noten in der API als ein Array des Typen \hk{NoteRessource} zurückgegeben werden. Diese Polymorphie vereinfacht die Entwicklung dieses Teilaspektes des Projektes wesentlich.
+		
+		\paragraph{Kopplung}
+		Unter Kopplung versteht man die Abhängigkeiten einer Klasse. So gibt es \textit{low} und \textit{high} \textit{coupling}. Ein einfaches Beispiel ist hier an der Entität des Landes festzumachen. Diese besitzt keine Abhängigkeiten zu anderen Entitäten und ist daher eine Klasse mit einem \textit{low coupling}. Im Gegensatz hierzu steht die Entität/Klasse Parfüm. Diese benötigt viele Klassen, um zu funktionieren. Hier spricht man von \textit{high coupling}.
+		
+		% https://www.sourcecodeexamples.net/2018/06/high-cohesion-grasp-pattern.html
+		\paragraph{Kohäsion}
+		Die Kohäsion einer Klasse befasst sich mit deren Spezialisierung bzw. den logischen Zusammenhang in einer einzelnen Klasse. So sollte in einer Klasse immer auf sich selbst fokussiert, überschaubar und verständlich sein. Außerdem sollten keine Methoden vorhanden sein, die in keinem engen Verhältnis zur Klasse selbst stehen. Ein Beispiel für eine hohe Kohäsion wären die implementierten JPA-Repositories von Hibernate. Diese verfügen nur über Funktionen die sie selbst, also die persistierte Datenbasis, betreffen.
+		
+	
+	\section{DRY}
+		\hk{DRY} oder \textbf{D}on't \textbf{r}epeat \textbf{y}ourself steht für ein Programmierprinzip, bei dem Codeduplikation verhindert werden soll. Grundlegend soll hier der Code, welcher wiederverwendet wird in eigene Methoden ausgelagert werden, damit er an allen benötigten Codestellen einfach verwendet werden kann. \\
+		Bekannte Beispiel in diesem Projekt sind zum Beispiel die Zuweisungen in den unterschiedlichen Konstruktoren. Hier wird in einem \hk{Treppenkonzept} vorgegangen und immer der nächst kleinere Konstruktor mithilfe des Befehls \hk{this(....)} aufgerufen. Danach erfolgt die zusätzliche Zuweisung der weiteren Variablen. Ein Beispiel hierfür ist die Klasse \hk{Manufacturer}.

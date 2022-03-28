@@ -1,14 +1,25 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
-%% Modified :	Nico Holzhäuser, TINF19B4
-%% -*- coding: utf-8 -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Clean Architecture}
 
-\section{Schichtenarchitektur}
-
-	\subsection{Planung}
-
-	\subsection{Entscheidung anhand von Kriterien}
+	\section{Schichtenarchitektur}
+	Die Schichtenarchitektur besteht aus fünf Schichten. 
+		
+		\subsection{Planung}
+		Diese fünf Schichten wurden im Projekt in Form von Modulen umgesetzt. Hierbei wurde strikt darauf geachtet, dass keine innere Schicht auf eine äußere Schicht zugreift.
+	
+		\subsection{Umsetzung}
+		Im Projekt wurde jede Schicht umgesetzt.
+		
+			\paragraph{Abstraction Schicht}
+			Diese Schicht ist der Kern der Architektur. Hier wurden die nötigen Packages importiert, die im kompletten Projekt (alle darüberliegenden Schichten) verwendet werden.
+			
+			\paragraph{Domain Schicht}
+			Die Domain-Schicht beinhaltet die Business Objekte und implementiert die organisationsweiten Geschäftslogiken. In dieser Schicht sind somit die Entitäten zu finden.
+			
+			\paragraph{Applikation Schicht}
+			In der Applikationsschicht werden die Use-Cases implementiert. Dabei wurde darauf geachtet, dass die UC von den eigentlichen CRUD Operationen getrennt werden, um das Projekt übersichtlicher zu gestalten.
+			
+			\paragraph{Adapter Schicht}
+			In dieser Schicht findet das Mapping von den eigentlichen Businessobjekten zu den serialisierbaren Ressourcen statt. Hierbei wurde sowohl ein Mapper für den Weg von den Ressourcen zu Businessobjekten als auch vice versa für jede Entität implementiert.
+			
+			\paragraph{Plugin Schicht}
+			In dieser Schicht werden die geschaffenen Schnittstellen aus der Domainschicht konkret mit Hilfe des Frameworks Hibernate implementiert. Ebenfalls wurde in dieser Schicht die Controllerlogik für die API geschaffen und diverse Plugins für die Unterstützung des Entwicklungsprozesses integriert. Konkret wurde die \textbf{H2Console} für eine Ansicht der Datenbank, sowie \textbf{Swagger} für die Anzeige der APIs verwendet.

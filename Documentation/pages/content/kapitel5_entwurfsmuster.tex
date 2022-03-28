@@ -1,14 +1,17 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
-%% Modified :	Nico Holzhäuser, TINF19B4
-%% -*- coding: utf-8 -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{Entwurfsmuster}
+	\begin{figure}[htb]
+		\centering
+		\subfloat[\centering UML vor dem Refactoring]{{\shadowimage[width=5cm]{./zfiles/Diagramme/BeforeBridge.png}}}%
+		\qquad
+		\subfloat[\centering UML nach dem Refactoring]{{\shadowimage[width=5cm]{./zfiles/Diagramme/AfterBridge.png}}}%
+		\caption{UML im Vergleich}%
+	\end{figure}
 
-\section{Begründung des Einsatzes}
+	\section{Begründung des Einsatzes}
+	Mithilfe des Bridge Musters kann die Implementierung von der Abstraktion entkoppelt werden. 
+	\vspace{0.2cm} \\
+	Konkret bedeutet das, dass in der Domainschicht ein Interface geschaffen wird, welches durch ein entsprechende Persistierungslogik in der Pluginschicht implementiert werden muss. Hierbei ergeben sich einige Vorteile durch diese vollzogene Entkopplung beider Komponenten. \\
+	Durch diese Aufteilung wird zuerst die Clean Architecture umgesetzt. Des weiteren ist es durch dieses Entwurfsmuster einfach, die Persistierungslogik in der Pluginschicht auszutauschen, oder simultan mehrere Lösungen zu betreiben.
+	
 
-\section{\ac{UML} Vorher}
 
-\section{\ac{UML} Nachher}
