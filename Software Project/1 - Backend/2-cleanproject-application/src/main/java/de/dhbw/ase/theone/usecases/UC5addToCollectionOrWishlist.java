@@ -49,7 +49,7 @@ public class UC5addToCollectionOrWishlist {
 
     public Wishlist addPerfumeToWishlist(long perfumeID, long wishlistID){
         if(perfumeRepository.existsById(perfumeID)){
-            if(wishlistRepository.findById(wishlistID) != null){
+            if(wishlistRepository.existsById(wishlistID)){
                 Optional<Wishlist> foundWishlist = wishlistRepository.findById(wishlistID);
                 Optional<Perfume> foundPerfume = perfumeRepository.findById(perfumeID);
                 if(foundWishlist.isPresent() && foundPerfume.isPresent()){

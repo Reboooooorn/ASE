@@ -39,8 +39,13 @@ public class Wishlist {
     }
 
     public Wishlist(String name, Set<Perfume> includedPerfumes) {
-        this.name = name;
+        this(name);
         this.includedPerfumes = includedPerfumes;
+    }
+
+    public Wishlist(Long id, String name) {
+        this(name);
+        this.id = id;
     }
 
     public void addPerfume(Perfume perfume) {

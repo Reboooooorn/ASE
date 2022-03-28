@@ -1,7 +1,5 @@
 package de.dhbw.ase.theone.wishlist.listener;
 
-import de.dhbw.ase.theone.collection.Collection;
-import de.dhbw.ase.theone.note.Note;
 import de.dhbw.ase.theone.wishlist.Wishlist;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

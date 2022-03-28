@@ -1,7 +1,5 @@
 package de.dhbw.ase.theone.wishlist;
 
-import de.dhbw.ase.theone.collection.Collection;
-import de.dhbw.ase.theone.collection.CollectionRessource;
 import de.dhbw.ase.theone.perfume.PerfumeResourceToPerfumeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

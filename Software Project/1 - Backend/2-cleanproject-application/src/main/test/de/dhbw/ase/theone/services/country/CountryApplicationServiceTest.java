@@ -2,6 +2,7 @@ package de.dhbw.ase.theone.services.country;
 
 import de.dhbw.ase.theone.country.Country;
 import de.dhbw.ase.theone.country.CountryRepository;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,15 +37,10 @@ class CountryApplicationServiceTest {
 
     @Test
     void getAllCountries() {
-
         List<Country> countries = Arrays.asList(country, secondCountry);
-
         doReturn(Arrays.asList(country, secondCountry)).when(this.countryRepository).findAll();
-
         List<Country> readCountries = this.countryApplicationService.getAllCountries();
-
         verify(this.countryRepository, times(1)).findAll();
-
         assertEquals(countries, readCountries);
     }
 }

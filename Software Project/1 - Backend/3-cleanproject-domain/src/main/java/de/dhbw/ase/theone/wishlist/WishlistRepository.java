@@ -1,7 +1,5 @@
 package de.dhbw.ase.theone.wishlist;
 
-import de.dhbw.ase.theone.collection.Collection;
-
 import java.util.List;
 import java.util.Optional;
 

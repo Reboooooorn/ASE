@@ -42,7 +42,7 @@ public class UC1createPerfume {
             Optional<Note> targetHeadNote =  noteRepository.getNoteByID(perfume.getHeadNote().getId());
 
             Optional<Collection> targetCollection;
-            if(null != perfume.getCollection().getId()){
+            if(null != perfume.getCollection()){
                 targetCollection = collectionRepository.findById(perfume.getCollection().getId());
             }else{
                 targetCollection = Optional.empty();
@@ -62,9 +62,8 @@ public class UC1createPerfume {
                 newPerfume.heartNote((HeartNote) targetHeartNote.get());
                 newPerfume.headNote((HeadNote) targetHeadNote.get());
                 if (targetCollection.isPresent()) {
-                    return perfumeRepository.save(newPerfume.build());
+                    newPerfume.collection(targetCollection.get());
                 }
-                newPerfume.collection(targetCollection.get());
                 return perfumeRepository.save(newPerfume.build());
             }
 

@@ -38,8 +38,13 @@ public class Collection {
     }
 
     public Collection(String name, Set<Perfume> perfumeList) {
-        this.name = name;
+        this(name);
         this.perfumeList = perfumeList;
+    }
+
+    public Collection(Long id, String name) {
+        this(name);
+        this.id = id;
     }
 
     public void addPerfume(Perfume perfume) {
