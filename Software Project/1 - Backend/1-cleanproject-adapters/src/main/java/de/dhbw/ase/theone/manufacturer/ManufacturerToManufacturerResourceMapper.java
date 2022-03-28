@@ -22,7 +22,7 @@ public class ManufacturerToManufacturerResourceMapper implements Function<Manufa
     }
 
     private ManufacturerResource map(Manufacturer manufacturer) {
-        return new ManufacturerResource(manufacturer.getName(), countryToCountryResourceMapper.apply(manufacturer.getCountry()));
+        return new ManufacturerResource(manufacturer.getId(),manufacturer.getName(), countryToCountryResourceMapper.apply(manufacturer.getCountry()));
     }
 
 }
