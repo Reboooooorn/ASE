@@ -9,17 +9,13 @@ import java.util.Optional;
 
 public interface NoteRepository {
 
-    BaseNote save(BaseNote baseNote);
-
-    HeartNote save(HeartNote heartNote);
-
-    HeadNote save(HeadNote headNote);
+    BaseNote save (BaseNote baseNote);
+    HeartNote save (HeartNote heartNote);
+    HeadNote save (HeadNote headNote);
 
     Optional<Note> getNoteByID(long id);
 
     List<BaseNote> findAllBaseNotes();
-
     List<HeartNote> findAllHeartNotes();
-
     List<HeadNote> findAllHeadNotes();
 }

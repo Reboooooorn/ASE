@@ -2,7 +2,6 @@ package de.dhbw.ase.theone.plugins.rest.country;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import de.dhbw.ase.theone.country.Country;
-import de.dhbw.ase.theone.country.CountryResource;
 import de.dhbw.ase.theone.services.country.CountryApplicationService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,8 +41,8 @@ class CountryControllerTest {
 
     @BeforeEach
     void setUp() {
-        country = new Country(1L,"UKR", "Ukraine");
-        secondCountry = new Country(2L,"D", "Deutschland");
+        country = new Country(1L, "UKR", "Ukraine");
+        secondCountry = new Country(2L, "D", "Deutschland");
     }
 
     @Test

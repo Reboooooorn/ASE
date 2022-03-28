@@ -3,6 +3,7 @@ package de.dhbw.ase.theone.wishlist;
 import de.dhbw.ase.theone.perfume.Perfume;
 import de.dhbw.ase.theone.wishlist.listener.WishlistListener;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;

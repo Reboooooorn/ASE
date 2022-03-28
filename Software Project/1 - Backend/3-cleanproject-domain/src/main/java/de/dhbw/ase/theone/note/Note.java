@@ -16,10 +16,10 @@ public abstract class Note {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name",nullable = false)
     protected String name;
 
-    @Column(name = "smell", nullable = false)
+    @Column(name = "smell",nullable = false)
     protected String smell;
 
     public Note(String name, String smell) {

@@ -13,11 +13,7 @@ import de.dhbw.ase.theone.usecases.*;
 import de.dhbw.ase.theone.wishlist.Wishlist;
 import de.dhbw.ase.theone.wishlist.WishlistRessource;
 import de.dhbw.ase.theone.wishlist.WishlistToWishlistResourceMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/uc")
@@ -92,13 +88,13 @@ public class UseCaseController {
 
     @RequestMapping(method = RequestMethod.POST,
             value = "/5a")
-    public PerfumeResource addPerfumeToCollection(@RequestParam int perfumeID,@RequestParam int collectionID) {
-        return perfumeToPerfumeResourceMapper.apply(uc5addToCollectionOrWishlist.addPerfumeToCollection(perfumeID,collectionID));
+    public PerfumeResource addPerfumeToCollection(@RequestParam int perfumeID, @RequestParam int collectionID) {
+        return perfumeToPerfumeResourceMapper.apply(uc5addToCollectionOrWishlist.addPerfumeToCollection(perfumeID, collectionID));
     }
 
     @RequestMapping(method = RequestMethod.POST,
             value = "/5b")
-    public WishlistRessource addPerfumeToWishlist(@RequestParam int perfumeID,@RequestParam int wishlistID) {
-        return wishlistToWishlistResourceMapper.apply(uc5addToCollectionOrWishlist.addPerfumeToWishlist(perfumeID,wishlistID));
+    public WishlistRessource addPerfumeToWishlist(@RequestParam int perfumeID, @RequestParam int wishlistID) {
+        return wishlistToWishlistResourceMapper.apply(uc5addToCollectionOrWishlist.addPerfumeToWishlist(perfumeID, wishlistID));
     }
 }

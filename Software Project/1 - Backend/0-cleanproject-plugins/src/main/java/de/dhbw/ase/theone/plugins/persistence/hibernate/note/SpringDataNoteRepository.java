@@ -11,11 +11,13 @@ import java.util.List;
 
 public interface SpringDataNoteRepository extends JpaRepository<Note, Long> {
 
-    @Query(value = "SELECT * FROM NOTES WHERE NOTE_TYPE LIKE 'Basis%'",nativeQuery = true)
+    @Query(value = "SELECT * FROM NOTES WHERE NOTE_TYPE LIKE 'Basis%'", nativeQuery = true)
     List<BaseNote> getAllBaseNotes();
-    @Query(value = "SELECT * FROM NOTES WHERE NOTE_TYPE LIKE 'Kopf%'",nativeQuery = true)
+
+    @Query(value = "SELECT * FROM NOTES WHERE NOTE_TYPE LIKE 'Kopf%'", nativeQuery = true)
     List<HeadNote> getAllHeadNotes();
-    @Query(value = "SELECT * FROM NOTES WHERE NOTE_TYPE LIKE 'Herz%'",nativeQuery = true)
+
+    @Query(value = "SELECT * FROM NOTES WHERE NOTE_TYPE LIKE 'Herz%'", nativeQuery = true)
     List<HeartNote> getAllHeartNotes();
 
 }

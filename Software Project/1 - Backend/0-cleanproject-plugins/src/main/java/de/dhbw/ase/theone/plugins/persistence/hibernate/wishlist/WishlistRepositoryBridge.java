@@ -1,7 +1,5 @@
 package de.dhbw.ase.theone.plugins.persistence.hibernate.wishlist;
 
-import de.dhbw.ase.theone.country.Country;
-import de.dhbw.ase.theone.country.CountryRepository;
 import de.dhbw.ase.theone.wishlist.Wishlist;
 import de.dhbw.ase.theone.wishlist.WishlistRepository;
 import org.springframework.beans.factory.annotation.Autowired;

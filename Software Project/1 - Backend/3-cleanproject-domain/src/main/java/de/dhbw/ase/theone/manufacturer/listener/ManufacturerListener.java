@@ -4,8 +4,7 @@ import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.persistence.PostPersist;
-import javax.persistence.PostRemove;
+import javax.persistence.*;
 
 public class ManufacturerListener {
 
@@ -18,7 +17,7 @@ public class ManufacturerListener {
 
     @PostRemove
     public void logRemoval(Manufacturer manufacturer) {
-        log.info(String.format("[HERSTELLER] Hersteller '%s' ('%d') wurde gelöscht!", manufacturer.getName(), manufacturer.getId()));
+        log.info(String.format("[HERSTELLER] Hersteller '%s' ('%d') wurde gelöscht!", manufacturer.getName(),manufacturer.getId()));
     }
 
 }

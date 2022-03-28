@@ -17,11 +17,11 @@ import java.util.List;
 public class BaseNote extends Note {
 
     @Transient
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "baseNote")
+    @OneToMany(cascade = CascadeType.MERGE,mappedBy = "baseNote")
     List<Perfume> perfumeList = new LinkedList<>();
 
-    public BaseNote(String name, String smell) {
-        super(name, smell);
+    public BaseNote(String name, String smell){
+        super(name,smell);
     }
 
     public BaseNote(Long id, String name, String smell) {

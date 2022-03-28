@@ -2,10 +2,7 @@ package de.dhbw.ase.theone.plugins.rest.collection;
 
 import de.dhbw.ase.theone.collection.CollectionRessource;
 import de.dhbw.ase.theone.collection.CollectionToCollectionResourceMapper;
-import de.dhbw.ase.theone.note.NoteResource;
-import de.dhbw.ase.theone.note.NoteToNoteResourceMapper;
 import de.dhbw.ase.theone.services.collection.CollectionApplicationService;
-import de.dhbw.ase.theone.services.note.NoteApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

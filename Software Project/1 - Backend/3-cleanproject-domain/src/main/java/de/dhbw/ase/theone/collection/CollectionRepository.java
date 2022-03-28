@@ -8,7 +8,6 @@ public interface CollectionRepository {
     Collection save(Collection collection);
 
     boolean existsByName(String collectionName);
-
     boolean existsById(Long id);
 
     List<Collection> findAllCollections();

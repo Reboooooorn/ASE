@@ -2,6 +2,7 @@ package de.dhbw.ase.theone.services.note;
 
 import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import de.dhbw.ase.theone.manufacturer.ManufacturerRepository;
+import de.dhbw.ase.theone.note.Note;
 import de.dhbw.ase.theone.note.NoteRepository;
 import de.dhbw.ase.theone.note.types.BaseNote;
 import de.dhbw.ase.theone.note.types.HeadNote;

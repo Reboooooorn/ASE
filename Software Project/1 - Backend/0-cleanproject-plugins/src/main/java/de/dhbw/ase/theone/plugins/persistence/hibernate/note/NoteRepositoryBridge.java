@@ -6,7 +6,6 @@ import de.dhbw.ase.theone.note.types.BaseNote;
 import de.dhbw.ase.theone.note.types.HeadNote;
 import de.dhbw.ase.theone.note.types.HeartNote;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -26,10 +25,12 @@ public class NoteRepositoryBridge implements NoteRepository {
     public BaseNote save(BaseNote baseNote) {
         return springDataNoteRepository.save(baseNote);
     }
+
     @Override
     public HeartNote save(HeartNote heartNote) {
         return springDataNoteRepository.save(heartNote);
     }
+
     @Override
     public HeadNote save(HeadNote headNote) {
         return springDataNoteRepository.save(headNote);

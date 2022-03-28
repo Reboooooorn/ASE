@@ -1,13 +1,17 @@
 package de.dhbw.ase.theone.collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import de.dhbw.ase.theone.collection.listener.CollectionListener;
+import de.dhbw.ase.theone.manufacturer.Manufacturer;
 import de.dhbw.ase.theone.perfume.Perfume;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -21,7 +25,7 @@ public class Collection {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", unique = true)
+    @Column(name = "name",unique = true)
     private String name;
 
     @JsonIgnoreProperties

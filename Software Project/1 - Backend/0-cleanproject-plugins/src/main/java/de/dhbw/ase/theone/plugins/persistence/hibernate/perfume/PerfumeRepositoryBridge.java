@@ -1,10 +1,8 @@
 package de.dhbw.ase.theone.plugins.persistence.hibernate.perfume;
 
 import de.dhbw.ase.theone.manufacturer.Manufacturer;
-import de.dhbw.ase.theone.manufacturer.ManufacturerRepository;
 import de.dhbw.ase.theone.perfume.Perfume;
 import de.dhbw.ase.theone.perfume.PerfumeRepository;
-import de.dhbw.ase.theone.plugins.persistence.hibernate.manufacturer.SpringDataManufacturerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -28,7 +26,7 @@ public class PerfumeRepositoryBridge implements PerfumeRepository {
 
     @Override
     public boolean existsByNameAndManufacturer(String name, Manufacturer manufacturer) {
-        return springDataManufacturerRepository.existsByNameAndManufacturer(name,manufacturer);
+        return springDataManufacturerRepository.existsByNameAndManufacturer(name, manufacturer);
     }
 
     @Override

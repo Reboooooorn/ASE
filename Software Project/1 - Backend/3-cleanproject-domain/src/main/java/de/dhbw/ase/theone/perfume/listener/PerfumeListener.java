@@ -4,9 +4,7 @@ import de.dhbw.ase.theone.perfume.Perfume;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.persistence.PostPersist;
-import javax.persistence.PostRemove;
-import javax.persistence.PostUpdate;
+import javax.persistence.*;
 
 public class PerfumeListener {
 
@@ -19,7 +17,7 @@ public class PerfumeListener {
 
     @PostRemove
     public void logRemoval(Perfume perfume) {
-        log.info(String.format("[PARFÜM] Parfüm '%s' ('%d') wurde gelöscht!", perfume.getName(), perfume.getId()));
+        log.info(String.format("[PARFÜM] Parfüm '%s' ('%d') wurde gelöscht!", perfume.getName(),perfume.getId()));
     }
 
     @PostUpdate

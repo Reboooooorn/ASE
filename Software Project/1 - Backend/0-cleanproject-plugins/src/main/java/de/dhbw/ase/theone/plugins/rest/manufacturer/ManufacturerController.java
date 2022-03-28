@@ -2,7 +2,6 @@ package de.dhbw.ase.theone.plugins.rest.manufacturer;
 
 import de.dhbw.ase.theone.manufacturer.ManufacturerResource;
 import de.dhbw.ase.theone.manufacturer.ManufacturerToManufacturerResourceMapper;
-import de.dhbw.ase.theone.services.country.CountryApplicationService;
 import de.dhbw.ase.theone.services.manufacturer.ManufacturerApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,7 @@ public class ManufacturerController {
     @Autowired
     public ManufacturerController(
             ManufacturerApplicationService manufacturerApplicationService,
-            ManufacturerToManufacturerResourceMapper manufacturerToManufacturerResourceMapper){
+            ManufacturerToManufacturerResourceMapper manufacturerToManufacturerResourceMapper) {
         this.manufacturerApplicationService = manufacturerApplicationService;
         this.manufacturerToManufacturerResourceMapper = manufacturerToManufacturerResourceMapper;
     }

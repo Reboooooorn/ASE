@@ -1,8 +1,5 @@
 package de.dhbw.ase.theone.plugins.rest.wishlist;
 
-import de.dhbw.ase.theone.collection.CollectionRessource;
-import de.dhbw.ase.theone.collection.CollectionToCollectionResourceMapper;
-import de.dhbw.ase.theone.services.collection.CollectionApplicationService;
 import de.dhbw.ase.theone.services.wishlist.WishlistApplicationService;
 import de.dhbw.ase.theone.wishlist.WishlistRessource;
 import de.dhbw.ase.theone.wishlist.WishlistToWishlistResourceMapper;

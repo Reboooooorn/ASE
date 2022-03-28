@@ -17,11 +17,11 @@ import java.util.List;
 public class HeartNote extends Note {
 
     @Transient
-    @OneToMany(cascade = CascadeType.MERGE, mappedBy = "heartNote")
+    @OneToMany(cascade = CascadeType.MERGE,mappedBy = "heartNote")
     List<Perfume> perfumeList = new LinkedList<>();
 
-    public HeartNote(String name, String smell) {
-        super(name, smell);
+    public HeartNote(String name,String smell){
+        super(name,smell);
     }
 
     public HeartNote(Long id, String name, String smell) {

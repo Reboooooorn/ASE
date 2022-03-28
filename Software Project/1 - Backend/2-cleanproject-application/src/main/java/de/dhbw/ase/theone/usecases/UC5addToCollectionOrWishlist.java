@@ -49,7 +49,7 @@ public class UC5addToCollectionOrWishlist {
 
     public Wishlist addPerfumeToWishlist(long perfumeID, long wishlistID){
         if(perfumeRepository.existsById(perfumeID)){
-            if(wishlistRepository.existsById(wishlistID)){
+            if(wishlistRepository.findById(wishlistID) != null){
                 Optional<Wishlist> foundWishlist = wishlistRepository.findById(wishlistID);
                 Optional<Perfume> foundPerfume = perfumeRepository.findById(perfumeID);
                 if(foundWishlist.isPresent() && foundPerfume.isPresent()){
@@ -58,7 +58,7 @@ public class UC5addToCollectionOrWishlist {
                         wishlist.addPerfume(foundPerfume.get());
                         return wishlistRepository.save(wishlist);
                     }
-
+                    throw new ValidationException(String.format("Parfum mit der ID '%d' bereits in der Wunschliste vorhanden!",wishlistID));
                 }
             }
             throw new ValidationException(String.format("Wunschliste mit der ID '%d' wurde nicht gefunden!",wishlistID));

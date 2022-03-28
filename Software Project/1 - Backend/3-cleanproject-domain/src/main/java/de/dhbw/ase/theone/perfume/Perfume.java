@@ -26,16 +26,16 @@ public class Perfume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Column(name = "Herstellungsjahr", nullable = false)
+    @Column(name = "Herstellungsjahr",nullable = false)
     private long yearOfManufacture;
 
-    @ManyToOne(cascade = CascadeType.DETACH, optional = false)
+    @ManyToOne(cascade = CascadeType.DETACH,optional = false)
     private Manufacturer manufacturer;
 
-    @Column(name = "sizeInMilliliter", nullable = false)
+    @Column(name = "sizeInMilliliter",nullable = false)
     private int sizeInMilliliter;
 
     @JoinColumn(name = "baseNote_id")
@@ -61,7 +61,7 @@ public class Perfume {
     @JoinColumn(name = "perfume_id")
     private Set<Rating> ratings;
 
-    public Perfume() {
+    public Perfume(){
         this.wishedLists = new HashSet<>();
         this.ratings = new HashSet<>();
         this.collection = null; // <- Verschönern
@@ -78,8 +78,8 @@ public class Perfume {
         this.headNote = headNote;
     }
 
-    public Perfume(Long id, String name, long yearOfManufacture, Manufacturer manufacturer, int sizeInMilliliter, BaseNote baseNote, HeartNote heartNote, HeadNote headNote, Collection collection) {
-        this(name, yearOfManufacture, manufacturer, sizeInMilliliter, baseNote, heartNote, headNote);
+    public Perfume(Long id,String name, long yearOfManufacture, Manufacturer manufacturer, int sizeInMilliliter, BaseNote baseNote, HeartNote heartNote, HeadNote headNote, Collection collection) {
+        this(name,yearOfManufacture,manufacturer,sizeInMilliliter,baseNote,heartNote,headNote);
         this.id = id;
         this.collection = collection;
     }

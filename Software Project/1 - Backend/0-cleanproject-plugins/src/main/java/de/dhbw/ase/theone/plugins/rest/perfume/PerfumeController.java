@@ -1,10 +1,7 @@
 package de.dhbw.ase.theone.plugins.rest.perfume;
 
-import de.dhbw.ase.theone.manufacturer.ManufacturerResource;
-import de.dhbw.ase.theone.manufacturer.ManufacturerToManufacturerResourceMapper;
 import de.dhbw.ase.theone.perfume.PerfumeResource;
 import de.dhbw.ase.theone.perfume.PerfumeToPerfumeResourceMapper;
-import de.dhbw.ase.theone.services.manufacturer.ManufacturerApplicationService;
 import de.dhbw.ase.theone.services.perfume.PerfumeApplicationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
