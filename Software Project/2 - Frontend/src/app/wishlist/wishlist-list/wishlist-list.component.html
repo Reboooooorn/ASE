@@ -1,0 +1,29 @@
+<div class="row">
+  <h2>Wunschlisten</h2>
+</div>
+
+
+<div>
+  <a class="btn btn-success" href="#" routerLink="/wishlist/create/">Neue Wunschliste erstellen</a>
+</div>
+
+<br>
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> Name</th>
+    <th> Parfüms</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let wishlist of wishlists">
+    <td> {{ wishlist.name }} </td>
+    <td>
+      <ul *ngFor="let perfume of wishlist.perfumeResourceList">
+        <li>{{ perfume.name }} {{ perfume.id }}</li>
+      </ul>
+    </td>
+  </tr>
+  </tbody>
+</table>

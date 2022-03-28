@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:8080/swagger-ui/index.html" routerLinkActive="active">Swagger</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="http://localhost:8080/h2-console/login.jsp" routerLinkActive="active">H2Console</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLinkActive="active">|</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="countrys" routerLinkActive="active">Länder</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="manufacturers" routerLinkActive="active">Hersteller</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="notes" routerLinkActive="active">Noten</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="perfumes" routerLinkActive="active">Parfüms</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="collections" routerLinkActive="active">Kollektionen</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="wishlists" routerLinkActive="active">Wunschlisten</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="ratings" routerLinkActive="active">Ratings</a>
+    </li>
+  </ul>
+</nav>
+
+<h1 class="text-center"> {{title}} </h1>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span>All Rights Reserved 2022 @theOne</span>
+  </div>
+</footer>

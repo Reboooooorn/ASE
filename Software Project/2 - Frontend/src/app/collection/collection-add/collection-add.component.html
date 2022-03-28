@@ -1,0 +1,18 @@
+<h2> Füge ein Parfüm zu einer Kollektion hinzu</h2>
+
+<br>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+
+  <label for="collectionID">Collection :</label>
+  <div>
+    <select formControlName="collectionID" id="collectionID">
+      <option [ngValue]="null" disabled>Select Collection</option>
+      <option *ngFor="let collection of collections" [ngValue]="collection.id">{{collection.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

@@ -1,0 +1,18 @@
+<h2> Füge ein Parfüm zu einer Wunschliste hinzu</h2>
+
+<br>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+
+  <label for="wishlistID">Wishlist :</label>
+  <div>
+    <select formControlName="wishlistID" id="wishlistID">
+      <option [ngValue]="null" disabled>Select Collection</option>
+      <option *ngFor="let wishlist of wishlists" [ngValue]="wishlist.id">{{wishlist.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>

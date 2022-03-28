@@ -1,0 +1,19 @@
+<div class="row">
+  <h2>Kollektion anlegen</h2>
+</div>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="name">Name :</label>
+    <input
+      class="form-control"
+      formControlName="name"
+      id="name"
+      type="text">
+    <div *ngIf="getControls['name'].touched && getControls['name'].invalid" class="alert alert-danger">
+      <div *ngIf="getControls['name'].errors && getControls['name'].errors['required']">Name nicht zulässig!</div>
+    </div>
+  </div>
+  <br>
+  <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Submit</button>
+</form>

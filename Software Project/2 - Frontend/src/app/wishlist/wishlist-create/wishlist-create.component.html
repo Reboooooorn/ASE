@@ -1,0 +1,19 @@
+<div class="row">
+  <h2>Wunschlisten anlegen</h2>
+</div>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group">
+    <label for="name">Name :</label>
+    <input
+      class="form-control"
+      formControlName="name"
+      id="name"
+      type="text">
+    <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+      <div *ngIf="f['name'].errors && f['name'].errors['required']">Name nicht zulässig!</div>
+    </div>
+  </div>
+  <br>
+  <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Submit</button>
+</form>

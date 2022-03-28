@@ -1,0 +1,96 @@
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <label for="name">Name*:</label>
+  <input
+    class="form-control"
+    formControlName="name"
+    id="name"
+    type="text">
+  <div *ngIf="getControls['name'].touched && getControls['name'].invalid" class="alert alert-danger">
+    <div *ngIf="getControls['name'].errors && getControls['name'].errors['required']">Name is required.</div>
+  </div>
+
+  <br>
+
+  <label for="yearOfManufacture">Price*:</label>
+  <input
+    class="form-control"
+    formControlName="yearOfManufacture"
+    id="yearOfManufacture"
+    type="text">
+  <div *ngIf="getControls['yearOfManufacture'].touched && getControls['yearOfManufacture'].invalid"
+       class="alert alert-danger">
+    <div *ngIf="getControls['yearOfManufacture'].errors && getControls['yearOfManufacture'].errors['required']">
+      yearOfManufacture is required.
+    </div>
+  </div>
+
+  <br>
+
+  <label for="manufacturer">Hersteller *:</label>
+  <div>
+    <select formControlName="manufacturer" id="manufacturer">
+      <option [ngValue]="null" disabled>Select Manufacturer</option>
+      <option *ngFor="let manufacturer of manufacturers" [ngValue]="manufacturer">{{manufacturer.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="sizeInMilliliter">Größe*:</label>
+  <input
+    class="form-control"
+    formControlName="sizeInMilliliter"
+    id="sizeInMilliliter"
+    type="text">
+  <div *ngIf="getControls['sizeInMilliliter'].touched && getControls['sizeInMilliliter'].invalid"
+       class="alert alert-danger">
+    <div *ngIf="getControls['sizeInMilliliter'].errors && getControls['sizeInMilliliter'].errors['required']">
+      sizeInMilliliter is required.
+    </div>
+  </div>
+
+  <br>
+
+  <label for="basicNote">Basisnote *:</label>
+  <div>
+    <select formControlName="basicNote" id="basicNote">
+      <option [ngValue]="null" disabled>Auswahl der Basisnote</option>
+      <option *ngFor="let basenote of basenotes" [ngValue]="basenote">{{basenote.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="basicNote">Herznote *:</label>
+  <div>
+    <select formControlName="heartNote" id="heartNote">
+      <option [ngValue]="null" disabled>Auswahl der Herznote</option>
+      <option *ngFor="let heartNote of heartnotes" [ngValue]="heartNote">{{heartNote.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="basicNote">Kopfnote *:</label>
+  <div>
+    <select formControlName="headNote" id="headNote">
+      <option [ngValue]="null" disabled>Auswahl der Herznote</option>
+      <option *ngFor="let headNote of headnotes" [ngValue]="headNote">{{headNote.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="collectionName">Collection :</label>
+  <div>
+    <select formControlName="collectionName" id="collectionName">
+      <option [ngValue]="null" disabled>Select Collection</option>
+      <option [ngValue]="null">No Collection</option>
+      <option *ngFor="let collection of collections" [ngValue]="collection.name">{{collection.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Submit</button>
+</form>

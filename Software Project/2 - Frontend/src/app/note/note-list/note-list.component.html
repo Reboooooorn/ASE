@@ -1,0 +1,53 @@
+<h2>Basisnoten</h2>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> ID</th>
+    <th> Name</th>
+    <th> Smell</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let note of baseNotes">
+    <td> {{ note.id }} </td>
+    <td> {{ note.name }}</td>
+    <td> {{ note.smell }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Herznoten</h2>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> ID</th>
+    <th> Name</th>
+    <th> Smell</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let note of heartNotes">
+    <td> {{ note.id }} </td>
+    <td> {{ note.name }}</td>
+    <td> {{ note.smell }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<h2>Kopfnoten</h2>
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th> ID</th>
+    <th> Name</th>
+    <th> Smell</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let note of headNotes">
+    <td> {{ note.id }} </td>
+    <td> {{ note.name }}</td>
+    <td> {{ note.smell }}</td>
+  </tr>
+  </tbody>
+</table>

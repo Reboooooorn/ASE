@@ -1,0 +1,76 @@
+<form (ngSubmit)="submit()" [formGroup]="form">
+
+  <label for="user">Name: </label>
+  <input
+    class="form-control"
+    formControlName="user"
+    id="user"
+    type="text">
+  <div *ngIf="getControl['user'].touched && getControl['user'].invalid" class="alert alert-danger">
+    <div *ngIf="getControl['user'].errors && getControl['user'].errors['required']">Name is required.</div>
+  </div>
+
+  <br>
+
+  <label for="perfumeResource">Parfüm :</label>
+  <div>
+    <select formControlName="perfumeResource" id="perfumeResource">
+      <option [ngValue]="null" disabled>Select Parfüm</option>
+      <option *ngFor="let perfume of perfumes" [ngValue]="perfume">{{perfume.name}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="value_scent">Duftbewertung :</label>
+  <div>
+    <select formControlName="value_scent" id="value_scent">
+      <option [ngValue]="null" disabled>Wähle eine Wertung aus!</option>
+      <option *ngFor="let rating of ratings" [ngValue]="rating">{{rating}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="value_durability">Haltbarkeitsbewertung :</label>
+  <div>
+    <select formControlName="value_durability" id="value_durability">
+      <option [ngValue]="null" disabled>Wähle eine Wertung aus!</option>
+      <option *ngFor="let rating of ratings" [ngValue]="rating">{{rating}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="value_sillage">Sillagebewertung :</label>
+  <div>
+    <select formControlName="value_sillage" id="value_sillage">
+      <option [ngValue]="null" disabled>Wähle eine Wertung aus!</option>
+      <option *ngFor="let rating of ratings" [ngValue]="rating">{{rating}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="value_vial">Flakonbewertung :</label>
+  <div>
+    <select formControlName="value_vial" id="value_vial">
+      <option [ngValue]="null" disabled>Wähle eine Wertung aus!</option>
+      <option *ngFor="let rating of ratings" [ngValue]="rating">{{rating}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <label for="value_charge">Preis/Leistung: </label>
+  <div>
+    <select formControlName="value_charge" id="value_charge">
+      <option [ngValue]="null" disabled>Wähle eine Wertung aus!</option>
+      <option *ngFor="let rating of ratings" [ngValue]="rating">{{rating}}</option>
+    </select>
+  </div>
+
+  <br>
+
+  <button [disabled]="!form.valid" class="btn btn-primary" type="submit">Submit</button>
+</form>
